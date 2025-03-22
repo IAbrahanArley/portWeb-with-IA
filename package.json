@@ -1,0 +1,20 @@
+{
+	"name": "portfolio",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"dev": "npx concurrently \"cd frontend && npm run dev\" \"cd backend && npm run start:dev\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IAbrahanArley/portWeb-with-IA.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/IAbrahanArley/portWeb-with-IA/issues"
+	},
+	"homepage": "https://github.com/IAbrahanArley/portWeb-with-IA#readme",
+	"description": ""
+}
