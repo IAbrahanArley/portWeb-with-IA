@@ -1,0 +1,6 @@
+POST https://abrahanarley.app.n8n.cloud/webhook-test/assistente-pessoal
+Content-Type: application/json
+{
+    "chatId": "123456",
+  "mensagem": "Bomd ida",
+}
