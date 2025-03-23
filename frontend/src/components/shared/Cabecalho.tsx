@@ -7,7 +7,7 @@ import Menu from "./Menu"
 const Cabecalho = () => {
 	return (
 		<header className=" flex items-center h-16 text-white">
-			<Container className="flex-1 flex justify-between items-center">
+			<Container className="flex-1 flex justify-center sm:justify-between items-center">
 				<div className="flex gap-10 items-center">
 					<Link href="/" className="hidden sm:block">
 						<Image src="/logo2.png" alt="Logo" width={80} height={0} />
