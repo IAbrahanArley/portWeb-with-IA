@@ -3,5 +3,5 @@ export default interface Mensagem {
 	texto: string
 	autor: string
 	lado: "esquerda" | "direita"
-	icone: any
+	icone: string
 }

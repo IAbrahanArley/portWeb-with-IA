@@ -1,5 +1,5 @@
 import Cabecalho from "../shared/Cabecalho"
-import Tecnologia from "@core"
+import { Tecnologia } from "@core"
 import Tecnologias from "../tecnologias/Tecnologias"
 export interface PrincipalProps {
 	tecnologias: Tecnologia[]
