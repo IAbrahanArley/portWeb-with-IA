@@ -6,9 +6,9 @@ import Menu from "./Menu"
 
 const Cabecalho = () => {
 	return (
-		<header className=" flex items-center h-16 text-white">
-			<Container className="flex-1 flex justify-center sm:justify-between items-center">
-				<div className="flex gap-10 items-center">
+		<header className=" flex items-center h-16 text-[#4C1B8A] w-full">
+			<Container className="flex-1 sm:bg-[#4C1B8A] rounded-full mt-10 flex justify-center md:justify-between items-center">
+				<div className="flex gap-10 items-center w-full">
 					<Link href="/" className="hidden sm:block">
 						<Image src="/logo2.png" alt="Logo" width={80} height={0} />
 					</Link>
@@ -16,8 +16,8 @@ const Cabecalho = () => {
 				</div>
 				<div className="hidden sm:flex items-center">
 					<Link
-						href="/sobre"
-						className="hidden sm:block bg-amber-200 rounded-full px-5 py-1 text-sm font-bold"
+						href="https://www.linkedin.com/in/abrahan-arley/"
+						className="hidden sm:block bg-[#E4DAED] rounded-full px-5 py-1 text-sm font-bold"
 						target="_blank"
 					>
 						LinkedIN

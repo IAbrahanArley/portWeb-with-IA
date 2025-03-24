@@ -5,7 +5,7 @@ export interface ReadmeProps {
 }
 const Readme = (props: ReadmeProps) => {
 	return (
-		<div className="flex flex-col items-stretch border bg-black p-6 border-zinc-800 ">
+		<div className="flex flex-col items-stretch border  p-6 border-[#E4DAED] ">
 			<div className="prose prose-zinc prose-invert" style={{ maxWidth: "100%" }}>
 				<ConteudoMD conteudo={props.conteudo} />
 			</div>

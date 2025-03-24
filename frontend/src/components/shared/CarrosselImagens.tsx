@@ -16,7 +16,7 @@ const CarrosselImagens = (props: CarrosselImagensProps) => {
 		<Carousel opts={{ loop: true }} className="md:w-11/12 xl:w-full w-7/10">
 			<CarouselContent>
 				{props.imagens.map((imagem, index) => (
-					<CarouselItem key={index} className="relative h-96 w-full">
+					<CarouselItem key={index} className="relative h-96 w-full ">
 						<Image src={imagem} alt="Imagem" fill className="object-cover" />
 					</CarouselItem>
 				))}
