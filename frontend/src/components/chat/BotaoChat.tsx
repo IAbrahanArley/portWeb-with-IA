@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
+import JanelaChat from "./JanelaChat"
 const BotaoChat = () => {
 	return (
 		<Popover>
@@ -16,7 +17,7 @@ const BotaoChat = () => {
 				className="w-[400px] sm:w-[500px]"
 				style={{ backgroundColor: "transparent", border: "none" }}
 			>
-				<h1>chat</h1>
+				<JanelaChat />
 			</PopoverContent>
 		</Popover>
 	)
