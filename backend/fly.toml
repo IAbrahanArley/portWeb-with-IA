@@ -1,21 +1,27 @@
 app = "nest-api-portfolio"
-
-[env]
-  NODE_ENV = "production"
-  PORT = "3000"
-  DATABASE_URL = "postgresql://usuario:senha@aws-0-us-west-1.pooler.supabase.com:6543/nomedb?schema=public"
-
 [build]
   dockerfile = "Dockerfile"
 
-[http_service]
-  internal_port = 3000
-  force_https = true
+[env]
+  PORT = "3000"
 
-  [[http_service.ports]]
+[experimental]
+  auto_rollback = true
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
     handlers = ["http"]
     port = 80
 
-  [[http_service.ports]]
+  [[services.ports]]
     handlers = ["tls", "http"]
     port = 443
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "30s"
+    restart_limit = 0
