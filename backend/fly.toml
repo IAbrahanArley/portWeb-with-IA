@@ -3,13 +3,13 @@ app = "nest-api-portfolio"
   dockerfile = "Dockerfile"
 
 [env]
-  PORT = "3000"
+  PORT = "4000"
 
 [experimental]
   auto_rollback = true
 
 [[services]]
-  internal_port = 3000
+  internal_port = 4000
   protocol = "tcp"
 
   [[services.ports]]
