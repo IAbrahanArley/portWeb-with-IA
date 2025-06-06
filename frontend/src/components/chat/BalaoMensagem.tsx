@@ -17,9 +17,15 @@ export default function BalaoMensagem(props: BalaoMensagemProps) {
 
 function BalaoEsquerdo(props: BalaoMensagemProps) {
 	return (
-		<div className="flex gap-4">
+		<div className="flex items-start gap-4">
 			{!props.omitirAutor && (
-				<Image src="/chat.svg" alt="Assistente" width={40} height={40} />
+				<Image
+					src="/chatbot.png"
+					alt="Assistente"
+					width={40}
+					height={40}
+					className="object-contain"
+				/>
 			)}
 			<div className={`flex flex-col ${props.omitirAutor && "pl-16"}`}>
 				{!props.omitirAutor && (

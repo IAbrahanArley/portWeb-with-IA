@@ -5,7 +5,7 @@ export default async function conversar(
 	chatId: string,
 	mensagem: Mensagem
 ): Promise<string | null> {
-	const webhookUrl = process.env.CHAT_WEBHOOK
+	const webhookUrl = process.env.NEXT_PUBLIC_CHAT_WEBHOOK
 	if (!webhookUrl) return null
 	const resposta = await fetch(webhookUrl, {
 		method: "POST",
@@ -18,5 +18,6 @@ export default async function conversar(
 		}),
 	})
 	const msg = await resposta.json()
-	return msg.resposta
+	console.log("Resposta do servidor:", msg)
+	return msg[0]?.output ?? null
 }

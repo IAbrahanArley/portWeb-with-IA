@@ -11,7 +11,7 @@ const BotaoChat = () => {
 				</div>
 			</PopoverTrigger>
 			<PopoverContent
-				side="top"
+				side="left"
 				align="end"
 				sideOffset={10}
 				className="w-[400px] sm:w-[500px]"

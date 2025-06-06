@@ -1,4 +1,5 @@
-node_modules
-dist
-.env
+fly.toml
 Dockerfile
+package.json
+apps/
+core/
