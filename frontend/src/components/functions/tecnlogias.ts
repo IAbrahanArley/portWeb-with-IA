@@ -1,11 +1,17 @@
 import { Tecnologia } from "@core"
-import { httpGet } from "./api"
+import { getTecnologias, getTecnologiasDestaque } from "@/app/actions/tecnologias"
+
 export async function obterTecnologias() {
-	const tecnologias: Tecnologia[] = await httpGet("/tecnologias")
+	const tecnologias: Tecnologia[] = await getTecnologias()
 	return {
 		todas: tecnologias,
 		get destaques() {
 			return tecnologias.filter((tecnologia) => tecnologia.destaque)
 		},
 	}
+}
+
+// Função otimizada usando Server Action específica
+export async function obterTecnologiasDestaque(): Promise<Tecnologia[]> {
+	return await getTecnologiasDestaque()
 }

@@ -16,7 +16,9 @@ const MiniCV = () => {
 					<span> Desenvolvedor Web </span>
 				</div>
 				<p className="text-sm lg:text-center xl:text-left text-center md:text-left">
-					Graduando em sistemas para internet pela Universidade Iesp de Joao Pessoa
+					Graduado em sistemas para internet pela Uniesp de Joao Pessoa.
+					<br /> Pós graaduando em engenharia de software pela Uninssau.
+					<br /> Desenvolvedor Full Stack com experiência em frontend e backend.
 				</p>
 			</div>
 		</div>
