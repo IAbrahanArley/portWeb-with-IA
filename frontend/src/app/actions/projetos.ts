@@ -46,7 +46,6 @@ const mockProjetos: Projeto[] = [
 		tipo: Tipo.MOBILE,
 		destaque: false,
 		repositorio: "https://github.com/user/mobile-app",
-		deployUrl: undefined,
 		tecnologias: [],
 	},
 ]
