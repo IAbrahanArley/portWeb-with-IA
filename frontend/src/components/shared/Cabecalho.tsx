@@ -6,7 +6,7 @@ import Menu from "./Menu"
 
 const Cabecalho = () => {
 	return (
-		<header className=" flex items-center h-16 text-[#4C1B8A] w-full">
+		<header className=" flex items-center h-16 text-[#4C1B8A] w-full z-50 bg-black/90">
 			<Container className="flex-1 sm:bg-[#4C1B8A] rounded-full mt-10 flex justify-center md:justify-between items-center">
 				<div className="flex gap-10 items-center w-full">
 					<Link href="/" className="hidden sm:block">

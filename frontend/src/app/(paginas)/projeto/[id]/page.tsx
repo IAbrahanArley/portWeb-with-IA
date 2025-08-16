@@ -25,6 +25,9 @@ const PaginaProjeto = async (props: { params: Promise<{ id: string }> }) => {
 		<div>
 			<Cabecalho />
 			<Container className="py-7 flex flex-col items-center gap-10">
+				{/* SEMPRE renderiza o carrossel - com imagens ou vídeo */}
+				<CarrosselImagens imagens={imagensCarrossel} />
+
 				<div className="w-full max-w-4xl">
 					<h1 className="text-3xl font-bold self-start mb-4">{projeto.nome}</h1>
 					<p className="text-gray-300 mb-6 leading-relaxed">{projeto.descricao}</p>
@@ -32,9 +35,6 @@ const PaginaProjeto = async (props: { params: Promise<{ id: string }> }) => {
 					{/* Botões de Ação */}
 					<BotoesAcao projeto={projeto} />
 				</div>
-
-				{/* Só renderiza o carrossel se houver imagens adicionais */}
-				{imagensCarrossel.length > 0 && <CarrosselImagens imagens={imagensCarrossel} />}
 
 				<Tecnologias tamanhoMenor tecnologias={projeto.tecnologias} />
 				<Readme conteudo={readme} />

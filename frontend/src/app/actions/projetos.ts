@@ -9,7 +9,7 @@ const mockProjetos: Projeto[] = [
 		id: "1",
 		nome: "Portfolio Web",
 		descricao: "Portfolio pessoal desenvolvido com Next.js",
-		imagens: ["/banner-37.png", "/logo.png"],
+		imagens: ["/banner-37.png"],
 		nivel: Nivel.AVANCADO,
 		tipo: Tipo.WEB,
 		destaque: true,
@@ -21,7 +21,7 @@ const mockProjetos: Projeto[] = [
 		id: "2",
 		nome: "Projeto Mobile",
 		descricao: "Aplicativo mobile desenvolvido com React Native",
-		imagens: ["/logo2.png", "/banner-37.png"],
+		imagens: ["/banner-37.png"],
 		nivel: Nivel.INTERMEDIARIO,
 		tipo: Tipo.MOBILE,
 		destaque: false,
@@ -35,12 +35,12 @@ export async function getProjetos(): Promise<Projeto[]> {
 	try {
 		const projetos = await prisma.projeto.findMany({ include: { tecnologias: true } })
 		console.log("✅ Banco conectado, projetos encontrados:", projetos.length)
-		
+
 		const projetosMapeados = projetos.map((projeto: any) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
-			imagens: projeto.imagens && projeto.imagens.length > 0 ? projeto.imagens : ["/logo.png"],
+			imagens: projeto.imagens || [], // SEM fallback para logo
 			nivel: projeto.nivel as Nivel,
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
@@ -48,10 +48,10 @@ export async function getProjetos(): Promise<Projeto[]> {
 			deployUrl: projeto.deployUrl,
 			tecnologias: projeto.tecnologias,
 		}))
-		
+
 		return projetosMapeados
 	} catch (error) {
-		console.warn('⚠️ Usando dados mock - banco não disponível:', error)
+		console.warn("⚠️ Usando dados mock - banco não disponível:", error)
 		return mockProjetos
 	}
 }
@@ -60,19 +60,19 @@ export async function getProjeto(id: string): Promise<Projeto | null> {
 	try {
 		const projeto = await prisma.projeto.findUnique({
 			where: { id: parseInt(id) },
-			include: { tecnologias: true }
+			include: { tecnologias: true },
 		})
-		
+
 		if (!projeto) {
 			console.log("❌ Projeto não encontrado para ID:", id)
 			return null
 		}
-		
+
 		const projetoMapeado = {
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
-			imagens: projeto.imagens && projeto.imagens.length > 0 ? projeto.imagens : ["/logo.png"],
+			imagens: projeto.imagens || [], // SEM fallback para logo
 			nivel: projeto.nivel as Nivel,
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
@@ -80,11 +80,11 @@ export async function getProjeto(id: string): Promise<Projeto | null> {
 			deployUrl: projeto.deployUrl,
 			tecnologias: projeto.tecnologias,
 		}
-		
+
 		return projetoMapeado
 	} catch (error) {
-		console.warn('⚠️ Erro ao buscar projeto, usando mock:', error)
-		const mockProjeto = mockProjetos.find(p => p.id === id)
+		console.warn("⚠️ Erro ao buscar projeto, usando mock:", error)
+		const mockProjeto = mockProjetos.find((p) => p.id === id)
 		return mockProjeto || null
 	}
 }
@@ -93,14 +93,14 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 	try {
 		const projetos = await prisma.projeto.findMany({
 			where: { tipo: tipo },
-			include: { tecnologias: true }
+			include: { tecnologias: true },
 		})
-		
+
 		const projetosMapeados = projetos.map((projeto: any) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
-			imagens: projeto.imagens && projeto.imagens.length > 0 ? projeto.imagens : ["/logo.png"],
+			imagens: projeto.imagens || [], // SEM fallback para logo
 			nivel: projeto.nivel as Nivel,
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
@@ -108,11 +108,11 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 			deployUrl: projeto.deployUrl,
 			tecnologias: projeto.tecnologias,
 		}))
-		
+
 		return projetosMapeados
 	} catch (error) {
-		console.warn('⚠️ Erro ao buscar projetos por tipo, usando mock:', error)
-		const mockProjetosFiltrados = mockProjetos.filter(p => p.tipo === tipo)
+		console.warn("⚠️ Erro ao buscar projetos por tipo, usando mock:", error)
+		const mockProjetosFiltrados = mockProjetos.filter((p) => p.tipo === tipo)
 		return mockProjetosFiltrados
 	}
 }
@@ -121,14 +121,14 @@ export async function getProjetosDestaque(): Promise<Projeto[]> {
 	try {
 		const projetos = await prisma.projeto.findMany({
 			where: { destaque: true },
-			include: { tecnologias: true }
+			include: { tecnologias: true },
 		})
-		
+
 		const projetosMapeados = projetos.map((projeto: any) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
-			imagens: projeto.imagens && projeto.imagens.length > 0 ? projeto.imagens : ["/logo.png"],
+			imagens: projeto.imagens || [], // SEM fallback para logo
 			nivel: projeto.nivel as Nivel,
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
@@ -136,11 +136,11 @@ export async function getProjetosDestaque(): Promise<Projeto[]> {
 			deployUrl: projeto.deployUrl,
 			tecnologias: projeto.tecnologias,
 		}))
-		
+
 		return projetosMapeados
 	} catch (error) {
-		console.warn('⚠️ Erro ao buscar projetos em destaque, usando mock:', error)
-		const mockProjetosDestaque = mockProjetos.filter(p => p.destaque)
+		console.warn("⚠️ Erro ao buscar projetos em destaque, usando mock:", error)
+		const mockProjetosDestaque = mockProjetos.filter((p) => p.destaque)
 		return mockProjetosDestaque
 	}
 }

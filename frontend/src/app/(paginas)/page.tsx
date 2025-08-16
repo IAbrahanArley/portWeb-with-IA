@@ -18,7 +18,7 @@ export default async function Home() {
 	])
 
 	return (
-		<div>
+		<div className="bg-[url('/background.svg')] bg-opacity-10 bg-cover bg-center bg-no-repeat">
 			<Principal tecnologias={tecnologias.destaques} />
 			<Container className="py-20 flex flex-col items-center gap-10">
 				<Projetos lista={projetosDestaque} titulo="Projetos em destaque" />

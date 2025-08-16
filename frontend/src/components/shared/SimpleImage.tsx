@@ -9,6 +9,7 @@ interface SimpleImageProps {
 	className?: string
 	objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down"
 	priority?: boolean
+	sizes?: string
 }
 
 export default function SimpleImage({
@@ -18,33 +19,9 @@ export default function SimpleImage({
 	width,
 	height,
 	className = "",
-	objectFit = "cover",
 	priority = false,
+	sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
 }: SimpleImageProps) {
-	// Debug logs
-	console.log("🖼️ SimpleImage Debug:", {
-		src,
-		alt,
-		fill,
-		width,
-		height,
-		className,
-		objectFit,
-		priority,
-		tipoSrc: typeof src,
-		srcValido: src && src.length > 0,
-	})
-
-	// Validação adicional
-	if (!src || src.length === 0) {
-		console.error("❌ SimpleImage: src inválido ou vazio:", src)
-		return (
-			<div className={`bg-red-200 flex items-center justify-center ${className}`}>
-				<span className="text-red-500 text-sm">Src inválido: {src}</span>
-			</div>
-		)
-	}
-
 	return (
 		<Image
 			src={src}
@@ -52,8 +29,8 @@ export default function SimpleImage({
 			fill={fill}
 			width={!fill ? width : undefined}
 			height={!fill ? height : undefined}
+			sizes={fill ? sizes : undefined}
 			className={className}
-			style={{ objectFit }}
 			priority={priority}
 		/>
 	)

@@ -101,38 +101,6 @@
 	}
 }
 
-/* Estilos para imagens */
-@layer components {
-	img {
-		@apply bg-transparent;
-	}
-	
-	/* Corrigir fundo preto das imagens Next.js */
-	.next-image-wrapper {
-		@apply bg-transparent;
-	}
-	
-	/* Garantir que as imagens tenham fundo transparente */
-	[data-nextjs-image] {
-		@apply bg-transparent;
-	}
-	
-	/* Estilos específicos para imagens do Next.js */
-	.next-image {
-		@apply bg-transparent;
-	}
-	
-	/* Forçar fundo transparente em todas as imagens */
-	img, .next-image, [data-nextjs-image] {
-		background: transparent !important;
-	}
-	
-	/* Estilos para o componente Image do Next.js */
-	.next-image-wrapper img {
-		background: transparent !important;
-	}
-}
-
 [data-badges] {
 	@apply flex flex-row justify-center flex-wrap gap-2 p-1;
 }
