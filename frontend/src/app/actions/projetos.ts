@@ -3,6 +3,26 @@
 import { prisma } from "@/lib/prisma"
 import { Projeto, Tipo, Nivel } from "@core"
 
+// Tipo específico para o projeto do Prisma
+type ProjetoPrisma = {
+	id: number
+	nome: string
+	descricao: string
+	imagens: string[] | null
+	nivel: number
+	tipo: string
+	destaque: boolean
+	repositorio: string
+	deployUrl: string | null
+	tecnologias: {
+		id: number
+		nome: string
+		descricao: string
+		imagem: string
+		destaque: boolean
+	}[]
+}
+
 // Dados mock para desenvolvimento sem banco
 const mockProjetos: Projeto[] = [
 	{
@@ -36,7 +56,7 @@ export async function getProjetos(): Promise<Projeto[]> {
 		const projetos = await prisma.projeto.findMany({ include: { tecnologias: true } })
 		console.log("✅ Banco conectado, projetos encontrados:", projetos.length)
 
-		const projetosMapeados = projetos.map((projeto: any) => ({
+		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
@@ -45,7 +65,7 @@ export async function getProjetos(): Promise<Projeto[]> {
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
-			deployUrl: projeto.deployUrl,
+			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
 			tecnologias: projeto.tecnologias,
 		}))
 
@@ -77,7 +97,7 @@ export async function getProjeto(id: string): Promise<Projeto | null> {
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
-			deployUrl: projeto.deployUrl,
+			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
 			tecnologias: projeto.tecnologias,
 		}
 
@@ -96,7 +116,7 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 			include: { tecnologias: true },
 		})
 
-		const projetosMapeados = projetos.map((projeto: any) => ({
+		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
@@ -105,7 +125,7 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
-			deployUrl: projeto.deployUrl,
+			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
 			tecnologias: projeto.tecnologias,
 		}))
 
@@ -124,7 +144,7 @@ export async function getProjetosDestaque(): Promise<Projeto[]> {
 			include: { tecnologias: true },
 		})
 
-		const projetosMapeados = projetos.map((projeto: any) => ({
+		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
@@ -133,7 +153,7 @@ export async function getProjetosDestaque(): Promise<Projeto[]> {
 			tipo: projeto.tipo as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
-			deployUrl: projeto.deployUrl,
+			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
 			tecnologias: projeto.tecnologias,
 		}))
 

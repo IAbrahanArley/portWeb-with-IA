@@ -25,13 +25,21 @@ export async function getTecnologias(): Promise<Tecnologia[]> {
 	try {
 		const tecnologias = await prisma.tecnologia.findMany()
 
-		return tecnologias.map((tecnologia: any) => ({
-			id: tecnologia.id,
-			nome: tecnologia.nome,
-			descricao: tecnologia.descricao,
-			imagem: tecnologia.imagem,
-			destaque: tecnologia.destaque,
-		}))
+		return tecnologias.map(
+			(tecnologia: {
+				id: number
+				nome: string
+				descricao: string
+				imagem: string
+				destaque: boolean
+			}) => ({
+				id: tecnologia.id,
+				nome: tecnologia.nome,
+				descricao: tecnologia.descricao,
+				imagem: tecnologia.imagem,
+				destaque: tecnologia.destaque,
+			})
+		)
 	} catch (error) {
 		console.warn("Usando dados mock - banco não disponível:", error)
 		// Retorna dados mock se o banco não estiver disponível
@@ -45,13 +53,21 @@ export async function getTecnologiasDestaque(): Promise<Tecnologia[]> {
 			where: { destaque: true },
 		})
 
-		return tecnologias.map((tecnologia: any) => ({
-			id: tecnologia.id,
-			nome: tecnologia.nome,
-			descricao: tecnologia.descricao,
-			imagem: tecnologia.imagem,
-			destaque: tecnologia.destaque,
-		}))
+		return tecnologias.map(
+			(tecnologia: {
+				id: number
+				nome: string
+				descricao: string
+				imagem: string
+				destaque: boolean
+			}) => ({
+				id: tecnologia.id,
+				nome: tecnologia.nome,
+				descricao: tecnologia.descricao,
+				imagem: tecnologia.imagem,
+				destaque: tecnologia.destaque,
+			})
+		)
 	} catch (error) {
 		console.warn("Usando dados mock - banco não disponível:", error)
 		// Retorna dados mock se o banco não estiver disponível

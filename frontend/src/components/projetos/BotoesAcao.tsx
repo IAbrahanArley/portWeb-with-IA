@@ -1,5 +1,5 @@
 import { Projeto } from "@core"
-import { ExternalLink, Github, Globe } from "lucide-react"
+import { Github, Globe } from "lucide-react"
 
 interface BotoesAcaoProps {
 	projeto: Projeto
