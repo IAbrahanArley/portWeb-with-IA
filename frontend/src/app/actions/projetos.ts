@@ -57,7 +57,10 @@ export async function getProjetos(): Promise<Projeto[]> {
 		console.log("🔍 Tentando conectar ao banco...")
 		const projetos = await prisma.projeto.findMany({ include: { tecnologias: true } })
 		console.log("✅ Banco conectado, projetos encontrados:", projetos.length)
-		console.log("📋 Projetos:", projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
+		console.log(
+			"📋 Projetos:",
+			projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo }))
+		)
 
 		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
@@ -78,11 +81,17 @@ export async function getProjetos(): Promise<Projeto[]> {
 			})),
 		}))
 
-		console.log("🔄 Projetos mapeados:", projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
+		console.log(
+			"🔄 Projetos mapeados:",
+			projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo }))
+		)
 		return projetosMapeados
 	} catch (error) {
 		console.warn("⚠️ Usando dados mock - banco não disponível:", error)
-		console.log("🎭 Retornando projetos mock:", mockProjetos.map(p => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
+		console.log(
+			"🎭 Retornando projetos mock:",
+			mockProjetos.map((p) => ({ id: p.id, nome: p.nome, tipo: p.tipo }))
+		)
 		return mockProjetos
 	}
 }
@@ -153,7 +162,12 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 			include: { tecnologias: true },
 		})
 
-		console.log("📋 Projetos encontrados para tipo", tipo, ":", projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
+		console.log(
+			"📋 Projetos encontrados para tipo",
+			tipo,
+			":",
+			projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo }))
+		)
 
 		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
@@ -174,7 +188,12 @@ export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 			})),
 		}))
 
-		console.log("🔄 Projetos mapeados para tipo", tipo, ":", projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
+		console.log(
+			"🔄 Projetos mapeados para tipo",
+			tipo,
+			":",
+			projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo }))
+		)
 		return projetosMapeados
 	} catch (error) {
 		console.warn("⚠️ Erro ao buscar projetos por tipo, usando mock:", error)
