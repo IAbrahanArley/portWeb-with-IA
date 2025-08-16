@@ -1,4 +1,4 @@
-import { Projeto } from "@core"
+import { Projeto } from "@/types"
 import { Github, Globe } from "lucide-react"
 
 interface BotoesAcaoProps {

@@ -1,22 +1,22 @@
 "use server"
 
 import { prisma } from "@/lib/prisma"
-import { Tecnologia } from "@core"
+import { Tecnologia } from "@/types"
 
 // Dados mock para desenvolvimento sem banco
 const mockTecnologias: Tecnologia[] = [
 	{
-		id: 1,
-		nome: "Next.js",
-		descricao: "Framework React para produção",
+		id: "1",
+		nome: "React",
+		descricao: "Biblioteca JavaScript para interfaces",
 		imagem: "/logo.png",
 		destaque: true,
 	},
 	{
-		id: 2,
-		nome: "TypeScript",
-		descricao: "Superset do JavaScript com tipagem",
-		imagem: "/logo2.png",
+		id: "2",
+		nome: "Node.js",
+		descricao: "Runtime JavaScript no servidor",
+		imagem: "/logo.png",
 		destaque: true,
 	},
 ]
@@ -33,7 +33,7 @@ export async function getTecnologias(): Promise<Tecnologia[]> {
 				imagem: string
 				destaque: boolean
 			}) => ({
-				id: tecnologia.id,
+				id: tecnologia.id.toString(),
 				nome: tecnologia.nome,
 				descricao: tecnologia.descricao,
 				imagem: tecnologia.imagem,
@@ -41,8 +41,7 @@ export async function getTecnologias(): Promise<Tecnologia[]> {
 			})
 		)
 	} catch (error) {
-		console.warn("Usando dados mock - banco não disponível:", error)
-		// Retorna dados mock se o banco não estiver disponível
+		console.warn("⚠️ Usando dados mock - banco não disponível:", error)
 		return mockTecnologias
 	}
 }
@@ -61,7 +60,7 @@ export async function getTecnologiasDestaque(): Promise<Tecnologia[]> {
 				imagem: string
 				destaque: boolean
 			}) => ({
-				id: tecnologia.id,
+				id: tecnologia.id.toString(),
 				nome: tecnologia.nome,
 				descricao: tecnologia.descricao,
 				imagem: tecnologia.imagem,
@@ -69,8 +68,8 @@ export async function getTecnologiasDestaque(): Promise<Tecnologia[]> {
 			})
 		)
 	} catch (error) {
-		console.warn("Usando dados mock - banco não disponível:", error)
-		// Retorna dados mock se o banco não estiver disponível
-		return mockTecnologias.filter((t) => t.destaque)
+		console.warn("⚠️ Erro ao buscar tecnologias em destaque, usando mock:", error)
+		const mockTecnologiasDestaque = mockTecnologias.filter((t) => t.destaque)
+		return mockTecnologiasDestaque
 	}
 }

@@ -1,4 +1,4 @@
-import { Tecnologia } from "@core"
+import { Tecnologia } from "@/types"
 export interface TecnologiasTrabalhadasProps {
 	tecnologias: Tecnologia[]
 }

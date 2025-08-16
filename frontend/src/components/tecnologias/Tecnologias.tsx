@@ -1,5 +1,5 @@
-import { Tecnologia } from "@core"
-import Image from "next/image"
+import { Tecnologia } from "@/types"
+import SimpleImage from "@/components/shared/SimpleImage"
 
 export interface TecnologiasProps {
 	tecnologias: Tecnologia[]
@@ -16,7 +16,7 @@ const Tecnologias = (props: TecnologiasProps) => {
 							props.tamanhoMenor ? "w-11 h-11" : "w-16 h-16"
 						} rounded-full flex items-center justify-center`}
 					>
-						<Image
+						<SimpleImage
 							src={tecnologia.imagem}
 							alt={tecnologia.nome}
 							width={50}

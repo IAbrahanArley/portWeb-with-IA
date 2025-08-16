@@ -1,4 +1,4 @@
-import { Tecnologia } from "@core"
+import { Tecnologia } from "@/types"
 import { getTecnologias, getTecnologiasDestaque } from "@/app/actions/tecnologias"
 
 export async function obterTecnologias() {

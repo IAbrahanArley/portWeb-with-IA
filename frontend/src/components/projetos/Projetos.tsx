@@ -1,12 +1,12 @@
-import { Projeto } from "@core"
-import ItemProjeto from "./ItemProjeto"
+import { Projeto } from "@/types"
 import {
 	Carousel,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious,
-} from "../ui/carousel"
+} from "@/components/ui/carousel"
+import ItemProjeto from "./ItemProjeto"
 
 export interface ProjetosProps {
 	titulo: string

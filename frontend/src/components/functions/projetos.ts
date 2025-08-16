@@ -1,4 +1,4 @@
-import { Projeto, Tipo } from "@core"
+import { Projeto, Tipo } from "@/types"
 import {
 	getProjetos,
 	getProjeto,
@@ -15,9 +15,6 @@ export async function getProjetosData() {
 		},
 		get web() {
 			return projetos.filter((projeto) => projeto.tipo === Tipo.WEB)
-		},
-		get jogos() {
-			return projetos.filter((projeto) => projeto.tipo === Tipo.JOGO)
 		},
 		get destaque() {
 			return projetos.filter((projeto) => projeto.destaque === true)
@@ -36,10 +33,6 @@ export async function getProjetosMobile(): Promise<Projeto[]> {
 
 export async function getProjetosWeb(): Promise<Projeto[]> {
 	return await getProjetosPorTipo(Tipo.WEB)
-}
-
-export async function getProjetosJogos(): Promise<Projeto[]> {
-	return await getProjetosPorTipo(Tipo.JOGO)
 }
 
 export async function getProjetosDestaqueData(): Promise<Projeto[]> {

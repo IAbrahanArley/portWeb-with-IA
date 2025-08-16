@@ -1,9 +1,17 @@
 "use server"
 
 import { prisma } from "@/lib/prisma"
-import { Projeto, Tipo, Nivel } from "@core"
+import { Projeto, Tipo, Nivel } from "@/types"
 
-// Tipo específico para o projeto do Prisma
+// Tipos específicos para o Prisma
+type TecnologiaPrisma = {
+	id: number
+	nome: string
+	descricao: string
+	imagem: string
+	destaque: boolean
+}
+
 type ProjetoPrisma = {
 	id: number
 	nome: string
@@ -14,13 +22,7 @@ type ProjetoPrisma = {
 	destaque: boolean
 	repositorio: string
 	deployUrl: string | null
-	tecnologias: {
-		id: number
-		nome: string
-		descricao: string
-		imagem: string
-		destaque: boolean
-	}[]
+	tecnologias: TecnologiaPrisma[]
 }
 
 // Dados mock para desenvolvimento sem banco
@@ -52,25 +54,35 @@ const mockProjetos: Projeto[] = [
 
 export async function getProjetos(): Promise<Projeto[]> {
 	try {
+		console.log("🔍 Tentando conectar ao banco...")
 		const projetos = await prisma.projeto.findMany({ include: { tecnologias: true } })
 		console.log("✅ Banco conectado, projetos encontrados:", projetos.length)
+		console.log("📋 Projetos:", projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
 
 		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
 			imagens: projeto.imagens || [], // SEM fallback para logo
-			nivel: projeto.nivel as Nivel,
-			tipo: projeto.tipo as Tipo,
+			nivel: projeto.nivel as unknown as Nivel,
+			tipo: projeto.tipo as unknown as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
 			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
-			tecnologias: projeto.tecnologias,
+			tecnologias: projeto.tecnologias.map((tech: TecnologiaPrisma) => ({
+				id: tech.id.toString(),
+				nome: tech.nome,
+				descricao: tech.descricao,
+				imagem: tech.imagem,
+				destaque: tech.destaque,
+			})),
 		}))
 
+		console.log("🔄 Projetos mapeados:", projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
 		return projetosMapeados
 	} catch (error) {
 		console.warn("⚠️ Usando dados mock - banco não disponível:", error)
+		console.log("🎭 Retornando projetos mock:", mockProjetos.map(p => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
 		return mockProjetos
 	}
 }
@@ -92,12 +104,18 @@ export async function getProjeto(id: string): Promise<Projeto | null> {
 			nome: projeto.nome,
 			descricao: projeto.descricao,
 			imagens: projeto.imagens || [], // SEM fallback para logo
-			nivel: projeto.nivel as Nivel,
-			tipo: projeto.tipo as Tipo,
+			nivel: projeto.nivel as unknown as Nivel,
+			tipo: projeto.tipo as unknown as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
 			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
-			tecnologias: projeto.tecnologias,
+			tecnologias: projeto.tecnologias.map((tech: TecnologiaPrisma) => ({
+				id: tech.id.toString(),
+				nome: tech.nome,
+				descricao: tech.descricao,
+				imagem: tech.imagem,
+				destaque: tech.destaque,
+			})),
 		}
 
 		return projetoMapeado
@@ -108,26 +126,55 @@ export async function getProjeto(id: string): Promise<Projeto | null> {
 	}
 }
 
+// Função para converter enum Tipo para string do banco
+function tipoParaBanco(tipo: Tipo): string {
+	switch (tipo) {
+		case Tipo.WEB:
+			return "web"
+		case Tipo.MOBILE:
+			return "mobile"
+		case Tipo.DESKTOP:
+			return "desktop"
+		case Tipo.API:
+			return "api"
+		case Tipo.BOT:
+			return "bot"
+		case Tipo.OUTRO:
+			return "outro"
+	}
+}
+
 export async function getProjetosPorTipo(tipo: Tipo): Promise<Projeto[]> {
 	try {
+		const tipoBanco = tipoParaBanco(tipo)
+		console.log("🔍 Buscando projetos por tipo:", tipo, "-> banco:", tipoBanco)
 		const projetos = await prisma.projeto.findMany({
-			where: { tipo: tipo },
+			where: { tipo: tipoBanco },
 			include: { tecnologias: true },
 		})
+
+		console.log("📋 Projetos encontrados para tipo", tipo, ":", projetos.map((p: ProjetoPrisma) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
 
 		const projetosMapeados = projetos.map((projeto: ProjetoPrisma) => ({
 			id: projeto.id.toString(),
 			nome: projeto.nome,
 			descricao: projeto.descricao,
 			imagens: projeto.imagens || [], // SEM fallback para logo
-			nivel: projeto.nivel as Nivel,
-			tipo: projeto.tipo as Tipo,
+			nivel: projeto.nivel as unknown as Nivel,
+			tipo: projeto.tipo as unknown as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
 			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
-			tecnologias: projeto.tecnologias,
+			tecnologias: projeto.tecnologias.map((tech: TecnologiaPrisma) => ({
+				id: tech.id.toString(),
+				nome: tech.nome,
+				descricao: tech.descricao,
+				imagem: tech.imagem,
+				destaque: tech.destaque,
+			})),
 		}))
 
+		console.log("🔄 Projetos mapeados para tipo", tipo, ":", projetosMapeados.map((p: Projeto) => ({ id: p.id, nome: p.nome, tipo: p.tipo })))
 		return projetosMapeados
 	} catch (error) {
 		console.warn("⚠️ Erro ao buscar projetos por tipo, usando mock:", error)
@@ -148,12 +195,18 @@ export async function getProjetosDestaque(): Promise<Projeto[]> {
 			nome: projeto.nome,
 			descricao: projeto.descricao,
 			imagens: projeto.imagens || [], // SEM fallback para logo
-			nivel: projeto.nivel as Nivel,
-			tipo: projeto.tipo as Tipo,
+			nivel: projeto.nivel as unknown as Nivel,
+			tipo: projeto.tipo as unknown as Tipo,
 			destaque: projeto.destaque,
 			repositorio: projeto.repositorio,
 			deployUrl: projeto.deployUrl || undefined, // Convertendo null para undefined
-			tecnologias: projeto.tecnologias,
+			tecnologias: projeto.tecnologias.map((tech: TecnologiaPrisma) => ({
+				id: tech.id.toString(),
+				nome: tech.nome,
+				descricao: tech.descricao,
+				imagem: tech.imagem,
+				destaque: tech.destaque,
+			})),
 		}))
 
 		return projetosMapeados

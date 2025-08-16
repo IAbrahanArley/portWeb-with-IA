@@ -1,5 +1,5 @@
 "use client"
-import { Projeto } from "@core"
+import { Projeto } from "@/types"
 import Link from "next/link"
 import { Globe } from "lucide-react"
 import SimpleImage from "@/components/shared/SimpleImage"
