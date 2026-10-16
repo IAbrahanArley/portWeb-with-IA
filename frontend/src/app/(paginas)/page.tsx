@@ -1,31 +1,22 @@
 import Curriculo from "@/components/curriculo"
 import Principal from "@/components/landing/Principal"
-import { obterTecnologias } from "@/components/functions/tecnlogias"
 import Container from "@/components/shared/Container"
-import {
-	getProjetosDestaqueData,
-	getProjetosWeb,
-	getProjetosMobile,
-} from "@/components/functions/projetos"
 import Projetos from "@/components/projetos/Projetos"
+import Contato from "@/components/shared/Contato"
+import FonteDados from "@/components/shared/FonteDados"
+import { carregarPortfolio } from "@/lib/portfolio"
+
+export const dynamic = "force-dynamic"
 
 export default async function Home() {
-	const [tecnologias, projetosDestaque, projetosWeb, projetosMobile] = await Promise.all([
-		obterTecnologias(),
-		getProjetosDestaqueData(),
-		getProjetosWeb(),
-		getProjetosMobile(),
-	])
-
-	return (
-		<div className="bg-[url('/background.svg')] bg-opacity-10 bg-cover bg-center bg-no-repeat">
-			<Principal tecnologias={tecnologias.destaques} />
-			<Container className="py-20 flex flex-col items-center gap-10">
-				<Projetos lista={projetosDestaque} titulo="Projetos em destaque" />
-				<Projetos lista={projetosWeb} titulo="Projetos Web" />
-				<Projetos lista={projetosMobile} titulo="Projetos Mobile" />
-				<Curriculo tecnologias={tecnologias.todas} />
-			</Container>
-		</div>
-	)
+	const dados = await carregarPortfolio()
+	const selecionados = ["10", "5", "1", "6", "7", "4"].flatMap((id) => dados.projetos.filter((projeto) => projeto.id === id))
+	return <>
+		<Principal />
+		<main id="conteudo">
+			<Container className="work-container"><Projetos lista={selecionados} titulo="Trabalho selecionado." /><FonteDados data={dados.atualizadoEm} /></Container>
+			<Curriculo />
+			<Contato />
+		</main>
+	</>
 }

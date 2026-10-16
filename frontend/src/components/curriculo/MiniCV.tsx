@@ -1,28 +1,14 @@
-import Image from "next/image"
-import React from "react"
+import { ArrowDown } from "lucide-react"
+import { perfil } from "@/data/perfil"
 
-const MiniCV = () => {
-	return (
-		<div className="flex md:flex-row gap-6 flex-col-reverse flex-1 items-center lg:flex-col-reverse lg:items-center md:items-center xl:items-start border xl:flex-row border-[#E4DAED] px-6 pt-6">
-			<div className="relative min-w-72 h-64 xl:self-end">
-				<Image src="/abrahan.png" alt="foto de perfil" fill />
-			</div>
-			<div className="flex flex-col gap-5 self-center py-6 items-center md:items-start xl:items-start lg:items-center">
-				<div className="flex flex-col items-center md:items-start lg:items-center xl:items-start">
-					<span className="bg-gradient-to-r from-blue-600  via-white to-white text-transparent bg-clip-text text-2xl font-bold">
-						{" "}
-						Abrahan Arley{" "}
-					</span>
-					<span> Desenvolvedor Web </span>
-				</div>
-				<p className="text-sm lg:text-center xl:text-left text-center md:text-left">
-					Graduado em sistemas para internet pela Uniesp de Joao Pessoa.
-					<br /> Pós graaduando em engenharia de software pela Uninssau.
-					<br /> Desenvolvedor Full Stack com experiência em frontend e backend.
-				</p>
-			</div>
+export default function MiniCV() {
+	return <section className="about-section" id="sobre" aria-labelledby="titulo-sobre">
+		<h2 id="titulo-sobre" data-motion>Código com contexto.</h2>
+		<div className="about-copy">
+			<p className="about-lead" data-motion data-delay="70">Por trás de cada sistema, existe um negócio que precisa funcionar.</p>
+			<p data-motion data-delay="140">Tenho ampla experiência com pagamentos e sistemas financeiros, incluindo cobranças Pix, boletos, pagamentos recorrentes e conciliação financeira. Minha atuação combina Java/Spring Boot e PHP/Laravel com integrações, mensageria e processamento assíncrono — do desenho da API à resolução de incidentes em produção.</p>
+			<div className="about-facts" data-motion data-delay="210"><p><strong>Desde 2023</strong><span>Desenvolvendo software</span></p><p><strong>Pagamentos e finanças</strong><span>Integrações, cobranças e conciliação</span></p></div>
+			<a href={perfil.curriculo} download className="text-link" data-motion data-delay="250">Conheça minha trajetória <ArrowDown size={18} aria-hidden="true" /></a>
 		</div>
-	)
+	</section>
 }
-
-export default MiniCV

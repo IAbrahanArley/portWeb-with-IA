@@ -33,7 +33,7 @@ export default function RobustImage({
 	if (error) {
 		return (
 			<div
-				className={`bg-gray-200 flex items-center justify-center robust-image-container ${className}`}
+				className={`bg-gray-200 flex items-center justify-center image-frame ${className}`}
 			>
 				<span className="text-gray-500 text-sm">Imagem não disponível</span>
 			</div>
@@ -41,9 +41,9 @@ export default function RobustImage({
 	}
 
 	return (
-		<div className={`relative robust-image-container ${className}`}>
+		<div className={`relative image-frame ${className}`}>
 			{loading && (
-				<div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+				<div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
 					<span className="text-gray-500 text-sm">Carregando...</span>
 				</div>
 			)}
@@ -55,7 +55,7 @@ export default function RobustImage({
 				width={!fill ? width : undefined}
 				height={!fill ? height : undefined}
 				sizes={fill ? sizes : undefined}
-				className={`transition-opacity duration-300 robust-image ${
+				className={`transition-opacity duration-300 project-image ${
 					loading ? "opacity-0" : "opacity-100"
 				}`}
 				style={{
@@ -65,11 +65,11 @@ export default function RobustImage({
 				}}
 				priority={priority}
 				onError={() => {
-					console.error("❌ Erro ao carregar imagem:", src)
+					console.error("Erro ao carregar imagem:", src)
 					setError(true)
 				}}
 				onLoad={() => {
-					console.log("✅ Imagem carregada com sucesso:", src)
+					console.log("Imagem carregada com sucesso:", src)
 					setLoading(false)
 				}}
 			/>

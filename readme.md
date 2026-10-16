@@ -1,90 +1,55 @@
-# Portfolio Web
+# Portfólio — Abrahan Arley
 
-<div align="center">
+Portfólio de desenvolvimento backend com Java/Spring Boot, PHP/Laravel, APIs e integrações. Frontend Next.js 15, React 19, TypeScript, Tailwind CSS e carrosséis Embla. O conteúdo profissional está em `frontend/src/data`.
 
-<img src="./.gitassets/capa.png" width="350px">
+## Executar o frontend
 
-<div data-badges>
-  <img src="https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
-    <img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS" />
-    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-    <img src="https://img.shields.io/badge/prisma-%232D3748.svg?style=for-the-badge&logo=prisma&logoColor=white" alt="Prisma" />
-    <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="TailwindCSS" />
-    <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React" />
-    <img src="https://img.shields.io/badge/n8n-%2300C4B4.svg?style=for-the-badge&logo=n8n&logoColor=white" alt="n8n" />
-    <img src="https://img.shields.io/badge/supabase-%233ECF8E.svg?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
-</div>
+Requer Node.js 22.18+ (testes TypeScript utilizam a transformação nativa do Node) e npm.
 
-</div>
+```powershell
+cd frontend
+npm ci
+npx prisma generate
+npm run dev -- --port 3100
+```
 
-O Portfolio é uma aplicação full stack que integra tecnologias populares do mercado para criar uma vitrine digital das habilidades e projetos de um desenvolvedor. Esta plataforma vai além da simples exibição de trabalhos anteriores, funcionando como uma demonstração prática das capacidades técnicas do profissional, evidenciando seu domínio em desenvolvimento web moderno.
+Acesse http://localhost:3100. Sem configuração de banco, o site usa uma cópia dos registros públicos revisados, identificada com a data de atualização. Não há projetos fictícios de demonstração.
 
-Além de apresentar os projetos do desenvolvedor, a aplicação incorpora agentes de IA inteligentes que têm acesso completo ao currículo, repositórios do GitHub e histórico do profissional. Essa integração permite que recrutadores e potenciais clientes explorem, através de interações em tempo real via chat, aspectos específicos das competências técnicas do desenvolvedor. Os chats com os agentes oferecem insights valiosos, permitindo que visitantes façam perguntas e recebam informações detalhadas sobre as habilidades e experiências do profissional, tornando o processo de avaliação mais dinâmico e informativo.
+## Fontes dos dados
 
-## 🖥️ Como rodar este projeto 🖥️
+- `src/data/perfil.ts` e `cursos.ts`: conteúdo do currículo fornecido, revisado em 16/10/2026.
+- `src/data/casos.ts`: contexto, participação e decisões técnicas dos casos selecionados.
+- `src/data/apresentacao-projetos.ts`: títulos de exibição, resumos e capas locais.
+- `src/data/portfolio-snapshot.json`: cópia pública do Supabase, com dez projetos, 41 tecnologias e seus vínculos. Atualizar esta cópia após mudanças editoriais no banco; ela é a alternativa durante indisponibilidade ou execução sem credenciais.
+- `src/lib/portfolio.ts`: acesso centralizado e deduplicado por renderização; consulta Prisma quando DATABASE_URL está configurada e usa a cópia revisada em caso de falha.
 
-### Requisitos:
+Para conectar o banco, configure DATABASE_URL e DIRECT_URL em `frontend/.env.local` com os valores do seu projeto. Não coloque credenciais no código. A conexão local com o banco não é necessária para revisar a interface.
 
--   Node.js instalado
+O chat utiliza o webhook externo já integrado por NEXT_PUBLIC_CHAT_WEBHOOK. Sem esse valor, informa indisponibilidade e mantém os links de contato acessíveis. O fluxo n8n e sua base de conhecimento são externos a este repositório e não foram atualizados nesta entrega.
 
-### Execução:
+A pasta backend contém a API NestJS legada. O frontend atual consulta Prisma diretamente; não precisa iniciar essa API para navegar pelo portfólio. Schemas frontend/backend ainda devem ser conciliados antes de futuras mudanças estruturais.
 
-1. Clone este repositório:
+## Verificações
 
-    ```sh
-    git clone https://github.com/portfolio-projetos-dev/portfoleo.git
-    ```
+```powershell
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
 
-2. Acesse o diretório do projeto:
+Os testes cobrem normalização de URLs/categorias, integridade da cópia pública e tratamento de README ausente ou indisponível. O README é consultado pela API GitHub na branch padrão, com timeout, resolução de links relativos e HTML desativado.
 
-    ```sh
-    cd portfoleo
-    ```
+Se o cache padrão do Next estiver ocupado, use uma pasta isolada (já ignorada pelo Git):
 
-3. Acesse sua conta no [Supabase](https://supabase.com) ou crie uma nova conta.
+```powershell
+$env:NEXT_BUILD_DIR = '.next-ui'
+npm run build
+npm start -- --port 3100
+```
 
-4. Navegue até o projeto no Supabase e clique no botão `connect`.
-5. Clique em selecionar ORM e selecione o ORM Prisma.
-6. Copie as variáveis de ambiente listadas, crie um arquivo `.env` na pasta backend e preencha com as seguintes informações:
+Use o mesmo NEXT_BUILD_DIR ao compilar e iniciar. Sem essa variável, o Next mantém o diretório padrão `.next`.
 
-    ```
-    DATABASE_URL=
-    DIRECT_URL=
-    PORT=
-    ```
+## Referências e dados aplicados
 
-    **Obs: Caso o valor da porta não seja adicionado, a aplicação rodará por padrão na porta 4000**
-
-7. Crie uma conta no site no [n8n](https://n8n.io), e importe o fluxo definido no arquivo assistente-pessoal que está na pasta assets.
-
-8. Após importar o fluxo, clique no primeiro nó, acesse `webhooks url`, clique em `Production URL` e copie o valor dessa URL.
-   **Obs: Lembre-se de ativar o workflow no n8n**
-
-9. Crie um arquivo `.env` na pasta web e preencha com as seguintes informações, sendo que a URL da API é a URL do backend e a segunda variável deve ter como valor a URL que extraimos no n8n:
-
-    ```
-    NEXT_PUBLIC_API_URL=
-    NEXT_PUBLIC_CHAT_WEBHOOK=
-    ```
-
-10. Instale as dependências dos projetos `web` e `backend` com o comando `npm i` em cada uma das pastas
-
-11. Abra as pastas `web` e `backend` em dois terminais diferentes e rode o comando `npm run dev` em cada um dos terminais para executar o projeto.
-
-## 🗒️ Features do projeto 🗒️
-
--   Exibição de Projetos
--   Integração com Agentes de IA via Chat
--   Repositórios GitHub Integrados
--   Lista de tecnologias destacadas
--   Lista de tecnologias dos projetos
--   Buscar os projetos por Id com as tecnologias associadas
-
-![](./.gitassets/2.png)
-
-## 💎 Links úteis 💎
-
--   [Next.js](https://nextjs.org/docs)
--   [NestJS](https://docs.nestjs.com/)
--   [Prisma](https://www.prisma.io/docs)
--   [Supabase](https://supabase.com)
+Veja DESIGN.md para direção visual, motion e origem das capas. O planejamento está em PLANO-ATUALIZACAO-PORTFOLIO.md. Scripts SQL de atualização autorizada estão em docs/sql; os scripts evitam duplicação, mas devem ser revisados contra o estado atual antes de uma nova execução. Nenhum comando de recriação de banco é necessário para executar o frontend.

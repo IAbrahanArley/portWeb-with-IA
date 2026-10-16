@@ -27,11 +27,11 @@ function BalaoEsquerdo(props: BalaoMensagemProps) {
 					className="object-contain"
 				/>
 			)}
-			<div className={`flex flex-col ${props.omitirAutor && "pl-16"}`}>
+			<div className="flex flex-col min-w-0">
 				{!props.omitirAutor && (
 					<span className="text-xs text-zinc-600">{props.mensagem.autor}</span>
 				)}
-				<div className="bg-black text-white px-7 py-4 sm:w-80 rounded-r-3xl rounded-bl-3xl">
+				<div className="bg-black text-white px-4 py-3 max-w-full break-words rounded-r-3xl rounded-bl-3xl">
 					<ConteudoMD conteudo={props.mensagem.texto} />
 				</div>
 			</div>
@@ -45,7 +45,7 @@ function BalaoDireito(props: BalaoMensagemProps) {
 			{!props.omitirAutor && (
 				<span className="text-xs text-zinc-600">{props.mensagem.autor}</span>
 			)}
-			<div className="bg-red-700 text-white px-7 py-4 sm:w-80 rounded-l-3xl rounded-br-3xl">
+			<div className="bg-red-700 text-white px-4 py-3 max-w-full break-words rounded-l-3xl rounded-br-3xl">
 				<ConteudoMD conteudo={props.mensagem.texto} />
 			</div>
 		</div>

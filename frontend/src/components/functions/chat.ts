@@ -18,18 +18,19 @@ export default async function conversar(
 				chatId,
 				mensagem,
 			}),
+			signal: AbortSignal.timeout(20000),
 		})
+		if (!resposta.ok) return null
 
 		const msg = await resposta.json()
-		console.log("Resposta do servidor:", msg)
 
 		// CORREÇÃO: A resposta pode vir como objeto ou array
 		if (Array.isArray(msg)) {
 			// Se for array: [{ output: "..." }]
-			return msg[0]?.output ?? null
+			return typeof msg[0]?.output === "string" ? msg[0].output : null
 		} else {
 			// Se for objeto: { output: "..." }
-			return msg.output ?? null
+			return typeof msg?.output === "string" ? msg.output : null
 		}
 	} catch (error) {
 		console.error("Erro ao conversar com n8n:", error)

@@ -1,26 +1,9 @@
-import React from "react"
-import Image from "next/image"
+import { MessageSquare } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import JanelaChat from "./JanelaChat"
-const BotaoChat = () => {
-	return (
-		<Popover>
-			<PopoverTrigger asChild>
-				<div className="fixed bottom-5 right-5 z-50 cursor-pointer">
-					<Image src="/chatbot.png" alt="chat" width={70} height={70} />
-				</div>
-			</PopoverTrigger>
-			<PopoverContent
-				side="top"
-				align="end"
-				sideOffset={10}
-				className="w-[400px] sm:w-[500px]"
-				style={{ backgroundColor: "transparent", border: "none" }}
-			>
-				<JanelaChat />
-			</PopoverContent>
-		</Popover>
-	)
-}
 
-export default BotaoChat
+export default function BotaoChat() {
+	return <Popover><PopoverTrigger asChild><button type="button" aria-label="Abrir assistente do portfólio" className="chat-launcher"><MessageSquare size={20} aria-hidden="true" /><span>Converse com meu assistente</span></button></PopoverTrigger>
+		<PopoverContent side="top" align="end" sideOffset={12} className="w-[calc(100vw-2rem)] max-w-[420px] p-0 border-0"><JanelaChat /></PopoverContent>
+	</Popover>
+}

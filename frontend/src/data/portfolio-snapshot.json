@@ -1,0 +1,719 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "nome": "PedeRapidoAi",
+      "tipo": "web",
+      "nivel": 4,
+      "imagens": [
+        "https://storage.googleapis.com/branlyshop/Capa%20(1).png",
+        "https://storage.googleapis.com/branlyshop/455262136-7aec6d7d-1588-4995-905e-699bdce42f7a.jpeg"
+      ],
+      "destaque": true,
+      "deployUrl": "https://pede-rapido-ai.vercel.app/",
+      "descricao": "Sistema pessoal de gestão de pedidos para restaurantes, com autenticação, rotas protegidas, controle de sessão e acompanhamento por Kanban com drag-and-drop. Desenvolvido com Next.js, PostgreSQL, Prisma, Tailwind CSS, shadcn/ui e NextAuth.js.",
+      "repositorio": "https://github.com/IAbrahanArley/PedeRapidoAI",
+      "tecnologias": [
+        {
+          "id": 22,
+          "nome": "Next.js",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/next.svg",
+          "destaque": true,
+          "descricao": "Framework React para construção de aplicações web."
+        },
+        {
+          "id": 32,
+          "nome": "NextAuth.js",
+          "imagem": "https://authjs.dev/img/logo-sm.png",
+          "destaque": false,
+          "descricao": "Biblioteca para autenticação e controle de sessões em aplicações Next.js."
+        },
+        {
+          "id": 14,
+          "nome": "PostgreSQL",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/postgresql.svg",
+          "destaque": false,
+          "descricao": "Sistema de gerenciamento de banco de dados relacional avançado."
+        },
+        {
+          "id": 23,
+          "nome": "Prisma",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/prisma.svg",
+          "destaque": false,
+          "descricao": "ORM para Node.js e TypeScript com suporte a diversos bancos de dados."
+        },
+        {
+          "id": 37,
+          "nome": "shadcn/ui",
+          "imagem": "https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/shadcnui.svg",
+          "destaque": false,
+          "descricao": "Coleção de componentes utilizada na interface do sistema de pedidos."
+        },
+        {
+          "id": 25,
+          "nome": "Tailwind CSS",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/tailwind.svg",
+          "destaque": false,
+          "descricao": "Framework CSS para construção de interfaces de usuário."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Igreja Anglicana Comunhão",
+      "tipo": "web",
+      "nivel": 2,
+      "imagens": null,
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "Projeto extensionista que evoluiu de uma página de divulgação de ações sociais para um sistema web de gestão de doações da Igreja Anglicana Comunhão. Backend em Node.js, persistência em MariaDB e ambiente com Docker. O projeto também possui testes end-to-end com Cypress e cenários BDD com Cucumber.",
+      "repositorio": "https://github.com/IAbrahanArley/igreja-anglicana-comunhao",
+      "tecnologias": [
+        {
+          "id": 33,
+          "nome": "Cucumber",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/cucumber/cucumber-plain.svg",
+          "destaque": false,
+          "descricao": "Ferramenta de cenários BDD descrita no projeto da Igreja."
+        },
+        {
+          "id": 49,
+          "nome": "Cypress",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/cypressio/cypressio-original.svg",
+          "destaque": false,
+          "descricao": "Ferramenta de testes end-to-end descrita no projeto da Igreja."
+        },
+        {
+          "id": 17,
+          "nome": "Docker",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/docker.svg",
+          "destaque": false,
+          "descricao": "Plataforma para criação, execução e gerenciamento de containers."
+        },
+        {
+          "id": 41,
+          "nome": "MariaDB",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mariadb/mariadb-original.svg",
+          "destaque": false,
+          "descricao": "Sistema de gerenciamento de banco de dados relacional utilizado no projeto extensionista."
+        },
+        {
+          "id": 5,
+          "nome": "Node.js",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/node.svg",
+          "destaque": true,
+          "descricao": "Ambiente de execução JavaScript no lado do servidor."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Contrate Ai",
+      "tipo": "web",
+      "nivel": 3,
+      "imagens": null,
+      "destaque": true,
+      "deployUrl": null,
+      "descricao": "O Contrate.AI é um micro SaaS inovador desenvolvido para automatizar a geração de contratos personalizados por meio de inteligência artificial. A plataforma permite que usuários criem contratos juridicamente estruturados de forma rápida, segura e sem complicações, a partir de inputs simples e orientações guiadas pela IA. Além disso, o sistema conta com integração nativa com o Stripe, permitindo a cobrança direta de serviços e planos, tornando o modelo de negócios escalável e pronto para monetização. O Contrate.AI é ideal para profissionais autônomos, pequenas empresas e startups que buscam agilidade, padronização e eficiência nos seus processos contratuais.",
+      "repositorio": "https://github.com/leifertech/micro-saas-contract",
+      "tecnologias": []
+    },
+    {
+      "id": 4,
+      "nome": "XadrezConsole",
+      "tipo": "jogos",
+      "nivel": 2,
+      "imagens": [
+        "https://github.com/user-attachments/assets/21bddb46-fbe5-425d-b7c5-b95e703db89e"
+      ],
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "O Xadrez Console é um jogo de xadrez desenvolvido para ser executado inteiramente via linha de comando, com foco educacional. Criado como parte de uma prática de reforço dos conceitos de Programação Orientada a Objetos (POO), o projeto simula todas as regras clássicas do xadrez, incluindo movimentações válidas, cheques e xeque-mate, além de controle de turnos. O código é modular e estruturado com classes bem definidas, como Peça, Tabuleiro, Partida, entre outras, promovendo reutilização e manutenção eficiente.",
+      "repositorio": "https://github.com/IAbrahanArley/XadrezConsole",
+      "tecnologias": []
+    },
+    {
+      "id": 5,
+      "nome": "Queridas Compras",
+      "tipo": "web",
+      "nivel": 5,
+      "imagens": [
+        "https://storage.googleapis.com/branlyshop/Captura%20de%20tela%202025-08-15%20140044.png"
+      ],
+      "destaque": true,
+      "deployUrl": "https://www.queridascompras.com.br",
+      "descricao": "Marketplace regional desenvolvido em atuação profissional como desenvolvedor Full Stack, de dezembro de 2023 a junho de 2025. Implementação de APIs REST com Java e Spring Boot, persistência com JPA/Hibernate, autenticação JWT com Spring Security, testes com JUnit e Mockito e documentação OpenAPI. Interfaces em React e TypeScript, integração frontend-backend e deploy na DigitalOcean.",
+      "repositorio": "",
+      "tecnologias": [
+        {
+          "id": 17,
+          "nome": "Docker",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/docker.svg",
+          "destaque": false,
+          "descricao": "Plataforma para criação, execução e gerenciamento de containers."
+        },
+        {
+          "id": 27,
+          "nome": "Docker Compose",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg",
+          "destaque": false,
+          "descricao": "Ferramenta para configuração e execução de aplicações com múltiplos containers."
+        },
+        {
+          "id": 46,
+          "nome": "Hibernate",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/hibernate/hibernate-original.svg",
+          "destaque": false,
+          "descricao": "ORM Java para persistência de dados relacionais."
+        },
+        {
+          "id": 6,
+          "nome": "Java",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/java.svg",
+          "destaque": true,
+          "descricao": "Linguagem de programação orientada a objetos."
+        },
+        {
+          "id": 34,
+          "nome": "JUnit",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/junit/junit-original.svg",
+          "destaque": false,
+          "descricao": "Framework para testes automatizados em Java."
+        },
+        {
+          "id": 30,
+          "nome": "Mockito",
+          "imagem": "https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo%402x.png",
+          "destaque": false,
+          "descricao": "Biblioteca de mocks para testes unitários em Java."
+        },
+        {
+          "id": 10,
+          "nome": "React",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/react.svg",
+          "destaque": true,
+          "descricao": "Biblioteca JavaScript para construção de interfaces de usuário."
+        },
+        {
+          "id": 44,
+          "nome": "Spring Boot",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Framework Java para desenvolvimento de aplicações e APIs REST."
+        },
+        {
+          "id": 28,
+          "nome": "Spring Data JPA",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Abstração de repositórios e persistência de dados com JPA no ecossistema Spring."
+        },
+        {
+          "id": 35,
+          "nome": "Spring Security",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Framework de autenticação e autorização do ecossistema Spring."
+        },
+        {
+          "id": 29,
+          "nome": "Swagger/OpenAPI",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/swagger/swagger-original.svg",
+          "destaque": false,
+          "descricao": "Ferramentas e especificação para documentação de APIs HTTP."
+        },
+        {
+          "id": 25,
+          "nome": "Tailwind CSS",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/tailwind.svg",
+          "destaque": false,
+          "descricao": "Framework CSS para construção de interfaces de usuário."
+        },
+        {
+          "id": 4,
+          "nome": "TypeScript",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/typescript.svg",
+          "destaque": true,
+          "descricao": "Superset do JavaScript que adiciona tipagem estática."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "List Film",
+      "tipo": "api",
+      "nivel": 3,
+      "imagens": [
+        "https://storage.googleapis.com/branlyshop/listfilm.png"
+      ],
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "O ListFilm é uma API desenvolvida com o objetivo de aprimorar habilidades práticas na criação de serviços RESTful utilizando Java com Spring Boot e banco de dados PostgreSQL. O projeto implementa um sistema completo de CRUD de filmes, permitindo operações como cadastro, listagem, atualização e exclusão de títulos. A arquitetura segue boas práticas de desenvolvimento backend, com camadas bem definidas (Controller, Service, Repository), tratamento de exceções, validações, e mapeamento com JPA/Hibernate.",
+      "repositorio": "https://github.com/IAbrahanArley/listfilm",
+      "tecnologias": [
+        {
+          "id": 46,
+          "nome": "Hibernate",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/hibernate/hibernate-original.svg",
+          "destaque": false,
+          "descricao": "ORM Java para persistência de dados relacionais."
+        },
+        {
+          "id": 6,
+          "nome": "Java",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/java.svg",
+          "destaque": true,
+          "descricao": "Linguagem de programação orientada a objetos."
+        },
+        {
+          "id": 14,
+          "nome": "PostgreSQL",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/postgresql.svg",
+          "destaque": false,
+          "descricao": "Sistema de gerenciamento de banco de dados relacional avançado."
+        },
+        {
+          "id": 44,
+          "nome": "Spring Boot",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Framework Java para desenvolvimento de aplicações e APIs REST."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Centros comunitários",
+      "tipo": "api",
+      "nivel": 4,
+      "imagens": [
+        "https://storage.googleapis.com/branlyshop/ChatGPT%20Image%2015%20de%20ago.%20de%202025%2C%2014_10_18.png"
+      ],
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "API RESTful desenvolvida para gerenciar centros comunitários em situações de emergência, possibilitando o cadastro de centros, controle de recursos, realização de negociações entre centros e geração de relatórios operacionais.",
+      "repositorio": "https://github.com/IAbrahanArley/community_center",
+      "tecnologias": []
+    },
+    {
+      "id": 8,
+      "nome": "BranlyShop",
+      "tipo": "web",
+      "nivel": 5,
+      "imagens": [
+        "https://storage.googleapis.com/branlyshop/Capa.png"
+      ],
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "loja virtual",
+      "repositorio": "https://github.com/IAbrahanArley/branlyShop",
+      "tecnologias": []
+    },
+    {
+      "id": 9,
+      "nome": "Calculadora",
+      "tipo": "mobile",
+      "nivel": 2,
+      "imagens": null,
+      "destaque": false,
+      "deployUrl": null,
+      "descricao": "Calculadora ",
+      "repositorio": "https://github.com/IAbrahanArley/calculadoraReactNative",
+      "tecnologias": []
+    },
+    {
+      "id": 10,
+      "nome": "Sistema de Recrutamento e Gestão de Candidaturas",
+      "tipo": "web",
+      "nivel": 3,
+      "imagens": [],
+      "destaque": true,
+      "deployUrl": null,
+      "descricao": "Projeto pessoal para gestão de vagas, candidatos, currículos e candidaturas. Backend Java com Spring Boot, autenticação JWT e controle de acesso por perfis. Inclui upload de currículos, paginação, filtros e PostgreSQL. Frontend Angular, ambiente Docker/Docker Compose, deploy AWS EC2 com Nginx e pipeline de CI/CD com GitHub Actions.",
+      "repositorio": "https://github.com/IAbrahanArley/project-rh",
+      "tecnologias": [
+        {
+          "id": 48,
+          "nome": "Angular",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/angular/angular-original.svg",
+          "destaque": false,
+          "descricao": "Framework para interfaces web utilizado no sistema de recrutamento."
+        },
+        {
+          "id": 38,
+          "nome": "AWS EC2",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+          "destaque": false,
+          "descricao": "Serviço de computação em nuvem utilizado para deploy de aplicações."
+        },
+        {
+          "id": 43,
+          "nome": "AWS S3",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+          "destaque": false,
+          "descricao": "Serviço de armazenamento de objetos em nuvem."
+        },
+        {
+          "id": 17,
+          "nome": "Docker",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/docker.svg",
+          "destaque": false,
+          "descricao": "Plataforma para criação, execução e gerenciamento de containers."
+        },
+        {
+          "id": 27,
+          "nome": "Docker Compose",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg",
+          "destaque": false,
+          "descricao": "Ferramenta para configuração e execução de aplicações com múltiplos containers."
+        },
+        {
+          "id": 47,
+          "nome": "GitHub Actions",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/githubactions/githubactions-original.svg",
+          "destaque": false,
+          "descricao": "Automação de pipelines de integração e entrega contínuas."
+        },
+        {
+          "id": 46,
+          "nome": "Hibernate",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/hibernate/hibernate-original.svg",
+          "destaque": false,
+          "descricao": "ORM Java para persistência de dados relacionais."
+        },
+        {
+          "id": 6,
+          "nome": "Java",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/java.svg",
+          "destaque": true,
+          "descricao": "Linguagem de programação orientada a objetos."
+        },
+        {
+          "id": 40,
+          "nome": "Nginx",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nginx/nginx-original.svg",
+          "destaque": false,
+          "descricao": "Servidor HTTP e proxy reverso utilizado no deploy de aplicações."
+        },
+        {
+          "id": 14,
+          "nome": "PostgreSQL",
+          "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/postgresql.svg",
+          "destaque": false,
+          "descricao": "Sistema de gerenciamento de banco de dados relacional avançado."
+        },
+        {
+          "id": 44,
+          "nome": "Spring Boot",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Framework Java para desenvolvimento de aplicações e APIs REST."
+        },
+        {
+          "id": 28,
+          "nome": "Spring Data JPA",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Abstração de repositórios e persistência de dados com JPA no ecossistema Spring."
+        },
+        {
+          "id": 35,
+          "nome": "Spring Security",
+          "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+          "destaque": false,
+          "descricao": "Framework de autenticação e autorização do ecossistema Spring."
+        }
+      ]
+    }
+  ],
+  "tecnologias": [
+    {
+      "id": 1,
+      "nome": "HTML",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/html.svg",
+      "destaque": false,
+      "descricao": "Linguagem de marcação para estruturação de páginas web."
+    },
+    {
+      "id": 2,
+      "nome": "CSS",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/css.svg",
+      "destaque": false,
+      "descricao": "Linguagem de estilos para definição do design e layout das páginas web."
+    },
+    {
+      "id": 3,
+      "nome": "JavaScript",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/javascript.svg",
+      "destaque": false,
+      "descricao": "Linguagem de programação para interatividade em páginas web."
+    },
+    {
+      "id": 4,
+      "nome": "TypeScript",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/typescript.svg",
+      "destaque": true,
+      "descricao": "Superset do JavaScript que adiciona tipagem estática."
+    },
+    {
+      "id": 5,
+      "nome": "Node.js",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/node.svg",
+      "destaque": true,
+      "descricao": "Ambiente de execução JavaScript no lado do servidor."
+    },
+    {
+      "id": 6,
+      "nome": "Java",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/java.svg",
+      "destaque": true,
+      "descricao": "Linguagem de programação orientada a objetos."
+    },
+    {
+      "id": 10,
+      "nome": "React",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/react.svg",
+      "destaque": true,
+      "descricao": "Biblioteca JavaScript para construção de interfaces de usuário."
+    },
+    {
+      "id": 14,
+      "nome": "PostgreSQL",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/postgresql.svg",
+      "destaque": false,
+      "descricao": "Sistema de gerenciamento de banco de dados relacional avançado."
+    },
+    {
+      "id": 15,
+      "nome": "MongoDB",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/mongo.svg",
+      "destaque": false,
+      "descricao": "Banco de dados NoSQL orientado a documentos."
+    },
+    {
+      "id": 17,
+      "nome": "Docker",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/docker.svg",
+      "destaque": false,
+      "descricao": "Plataforma para criação, execução e gerenciamento de containers."
+    },
+    {
+      "id": 20,
+      "nome": "Firebase",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/firebase.svg",
+      "destaque": false,
+      "descricao": "Plataforma de desenvolvimento de aplicativos móveis e web da Google."
+    },
+    {
+      "id": 21,
+      "nome": "React Native",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/react.svg",
+      "destaque": false,
+      "descricao": "Biblioteca para desenvolvimento de aplicativos móveis com React."
+    },
+    {
+      "id": 22,
+      "nome": "Next.js",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/next.svg",
+      "destaque": true,
+      "descricao": "Framework React para construção de aplicações web."
+    },
+    {
+      "id": 23,
+      "nome": "Prisma",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/prisma.svg",
+      "destaque": false,
+      "descricao": "ORM para Node.js e TypeScript com suporte a diversos bancos de dados."
+    },
+    {
+      "id": 24,
+      "nome": "Supabase",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/supabase.svg",
+      "destaque": false,
+      "descricao": "Plataforma open-source para desenvolvimento de aplicativos web e APIs."
+    },
+    {
+      "id": 25,
+      "nome": "Tailwind CSS",
+      "imagem": "https://github.com/portfolio-projetos-dev/assets/raw/main/images/tailwind.svg",
+      "destaque": false,
+      "descricao": "Framework CSS para construção de interfaces de usuário."
+    },
+    {
+      "id": 26,
+      "nome": "Linux",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/linux/linux-original.svg",
+      "destaque": false,
+      "descricao": "Sistema operacional utilizado em ambientes de desenvolvimento e servidores."
+    },
+    {
+      "id": 27,
+      "nome": "Docker Compose",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg",
+      "destaque": false,
+      "descricao": "Ferramenta para configuração e execução de aplicações com múltiplos containers."
+    },
+    {
+      "id": 28,
+      "nome": "Spring Data JPA",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+      "destaque": false,
+      "descricao": "Abstração de repositórios e persistência de dados com JPA no ecossistema Spring."
+    },
+    {
+      "id": 29,
+      "nome": "Swagger/OpenAPI",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/swagger/swagger-original.svg",
+      "destaque": false,
+      "descricao": "Ferramentas e especificação para documentação de APIs HTTP."
+    },
+    {
+      "id": 30,
+      "nome": "Mockito",
+      "imagem": "https://raw.githubusercontent.com/mockito/mockito.github.io/master/img/logo%402x.png",
+      "destaque": false,
+      "descricao": "Biblioteca de mocks para testes unitários em Java."
+    },
+    {
+      "id": 31,
+      "nome": "RabbitMQ",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/rabbitmq/rabbitmq-original.svg",
+      "destaque": false,
+      "descricao": "Broker de mensagens para filas, eventos e processamento assíncrono."
+    },
+    {
+      "id": 32,
+      "nome": "NextAuth.js",
+      "imagem": "https://authjs.dev/img/logo-sm.png",
+      "destaque": false,
+      "descricao": "Biblioteca para autenticação e controle de sessões em aplicações Next.js."
+    },
+    {
+      "id": 33,
+      "nome": "Cucumber",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/cucumber/cucumber-plain.svg",
+      "destaque": false,
+      "descricao": "Ferramenta de cenários BDD descrita no projeto da Igreja."
+    },
+    {
+      "id": 34,
+      "nome": "JUnit",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/junit/junit-original.svg",
+      "destaque": false,
+      "descricao": "Framework para testes automatizados em Java."
+    },
+    {
+      "id": 35,
+      "nome": "Spring Security",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+      "destaque": false,
+      "descricao": "Framework de autenticação e autorização do ecossistema Spring."
+    },
+    {
+      "id": 36,
+      "nome": "MySQL",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mysql/mysql-original.svg",
+      "destaque": false,
+      "descricao": "Sistema de gerenciamento de banco de dados relacional."
+    },
+    {
+      "id": 37,
+      "nome": "shadcn/ui",
+      "imagem": "https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/shadcnui.svg",
+      "destaque": false,
+      "descricao": "Coleção de componentes utilizada na interface do sistema de pedidos."
+    },
+    {
+      "id": 38,
+      "nome": "AWS EC2",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      "destaque": false,
+      "descricao": "Serviço de computação em nuvem utilizado para deploy de aplicações."
+    },
+    {
+      "id": 39,
+      "nome": "Spring Cloud",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+      "destaque": false,
+      "descricao": "Ferramentas do ecossistema Spring para aplicações distribuídas."
+    },
+    {
+      "id": 40,
+      "nome": "Nginx",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nginx/nginx-original.svg",
+      "destaque": false,
+      "descricao": "Servidor HTTP e proxy reverso utilizado no deploy de aplicações."
+    },
+    {
+      "id": 41,
+      "nome": "MariaDB",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mariadb/mariadb-original.svg",
+      "destaque": false,
+      "descricao": "Sistema de gerenciamento de banco de dados relacional utilizado no projeto extensionista."
+    },
+    {
+      "id": 42,
+      "nome": "PHP",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/php/php-original.svg",
+      "destaque": false,
+      "descricao": "Linguagem utilizada no desenvolvimento de aplicações backend."
+    },
+    {
+      "id": 43,
+      "nome": "AWS S3",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+      "destaque": false,
+      "descricao": "Serviço de armazenamento de objetos em nuvem."
+    },
+    {
+      "id": 44,
+      "nome": "Spring Boot",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/spring/spring-original.svg",
+      "destaque": false,
+      "descricao": "Framework Java para desenvolvimento de aplicações e APIs REST."
+    },
+    {
+      "id": 45,
+      "nome": "PHPUnit",
+      "imagem": "https://cdn.jsdelivr.net/npm/@vscode/codicons@0.0.36/src/icons/beaker.svg",
+      "destaque": false,
+      "descricao": "Framework para testes automatizados em PHP."
+    },
+    {
+      "id": 46,
+      "nome": "Hibernate",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/hibernate/hibernate-original.svg",
+      "destaque": false,
+      "descricao": "ORM Java para persistência de dados relacionais."
+    },
+    {
+      "id": 47,
+      "nome": "GitHub Actions",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/githubactions/githubactions-original.svg",
+      "destaque": false,
+      "descricao": "Automação de pipelines de integração e entrega contínuas."
+    },
+    {
+      "id": 48,
+      "nome": "Angular",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/angular/angular-original.svg",
+      "destaque": false,
+      "descricao": "Framework para interfaces web utilizado no sistema de recrutamento."
+    },
+    {
+      "id": 49,
+      "nome": "Cypress",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/cypressio/cypressio-original.svg",
+      "destaque": false,
+      "descricao": "Ferramenta de testes end-to-end descrita no projeto da Igreja."
+    },
+    {
+      "id": 50,
+      "nome": "Laravel",
+      "imagem": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/laravel/laravel-original.svg",
+      "destaque": false,
+      "descricao": "Framework PHP para desenvolvimento de aplicações e APIs."
+    }
+  ],
+  "atualizadoEm": "2026-10-16"
+}

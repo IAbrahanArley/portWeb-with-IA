@@ -1,13 +1,16 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { Montserrat } from "next/font/google"
+import { Manrope } from "next/font/google"
+import { Suspense } from "react"
+import MotionRoot from "@/components/motion/MotionRoot"
 export const metadata: Metadata = {
-	title: "PortAbrahan",
-	description: "Portfolio de projetos de desenvolvimento de software",
+	title: "Abrahan Arley | Desenvolvedor Backend",
+	description: "Portfólio de Abrahan Arley: Java/Spring Boot, PHP/Laravel, APIs REST, integrações e sistemas financeiros.",
 }
 
-const fonte = Montserrat({
+const fonte = Manrope({
 	subsets: ["latin"],
+	variable: "--font-manrope",
 })
 
 export default function RootLayout({
@@ -16,8 +19,12 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${fonte.className} antialiased`}>{children}</body>
+		<html lang="pt-BR">
+			<body id="topo" className={`${fonte.variable} antialiased`}>
+				<a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+				{children}
+				<Suspense fallback={null}><MotionRoot /></Suspense>
+			</body>
 		</html>
 	)
 }

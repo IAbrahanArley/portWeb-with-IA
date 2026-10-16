@@ -4,5 +4,6 @@ export enum Tipo {
 	DESKTOP = "DESKTOP",
 	API = "API",
 	BOT = "BOT",
+	JOGO = "JOGO",
 	OUTRO = "OUTRO",
 }

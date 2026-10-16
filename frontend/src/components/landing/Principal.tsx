@@ -1,22 +1,28 @@
-import { Tecnologia } from "@/types"
+import Link from "next/link"
+import { ArrowDown, ArrowUpRight } from "lucide-react"
+import { perfil } from "@/data/perfil"
 import Cabecalho from "../shared/Cabecalho"
-import Tecnologias from "../tecnologias/Tecnologias"
-export interface PrincipalProps {
-	tecnologias: Tecnologia[]
-}
-export default function Principal(props: PrincipalProps) {
+import Container from "../shared/Container"
+import HeroMark from "./HeroMark"
+
+export default function Principal() {
 	return (
-		<div className=" flex flex-col justify-center items-center h-[500px] ">
+		<section className="hero-section">
 			<Cabecalho />
-			<div className="flex  flex-col items-center gap-10 justify-center flex-1 rounded-none bg-black/90 w-full h-[500px] ">
-				<div className="flex flex-col text-center items-center ">
-					<h1 className="sm:text-5xl text-3xl font-bold  bg-gradient-to-r from-purple-300 to-blue-900 bg-clip-text text-transparent">
-						Abrahan Arley
-					</h1>
-					<h2 className="text-xl mt-4 text-zinc-500">Desenvolvedor FullStack </h2>
+			<Container className="hero-layout">
+				<div className="hero-copy">
+					<p className="hero-intro" data-motion>Desenvolvedor Backend</p>
+					<h1 className="hero-title"><span className="hero-line"><span>Olá, sou</span></span><span className="hero-line"><span className="hero-name">Abrahan Arley.</span></span></h1>
+					<p className="hero-position" data-motion data-delay="100">Construo sistemas que movem negócios.</p>
+					<p className="hero-description" data-motion data-delay="180">Desenvolvo APIs e integrações, com ampla experiência em pagamentos, conciliação e sistemas financeiros.</p>
+					<div className="hero-actions" data-motion data-delay="280">
+						<Link href="#projetos" className="button-primary">Explorar projetos <ArrowUpRight size={20} aria-hidden="true" /></Link>
+						<a href={perfil.curriculo} download className="text-link">Meu currículo <ArrowDown size={18} aria-hidden="true" /></a>
+					</div>
+					<div className="hero-technologies" data-motion data-delay="340"><p>Tecnologias do meu dia a dia</p><ul aria-label="Principais tecnologias"><li>Java</li><li>Spring Boot</li><li>PHP</li><li>Laravel</li><li>PostgreSQL</li></ul></div>
 				</div>
-				<Tecnologias tecnologias={props.tecnologias} />
-			</div>
-		</div>
+				<HeroMark />
+			</Container>
+		</section>
 	)
 }

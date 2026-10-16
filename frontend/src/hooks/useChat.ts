@@ -7,8 +7,11 @@ export default function useChat() {
 	const [chatId] = useLocalStorage<string>("chatId", Id.gerar())
 	const [mensagens, setMensagens] = useLocalStorage<Mensagem[]>("mensagens", [])
 	const [pensando, setPensando] = useState(false)
+	const [erro, setErro] = useState<string | null>(null)
 	async function adicionarMensagem(texto: string) {
+		if (!texto.trim() || pensando) return
 		try {
+			setErro(null)
 			setPensando(true)
 			const novaMensagem: Mensagem = {
 				id: Id.gerar(),
@@ -21,7 +24,10 @@ export default function useChat() {
 
 			const resposta = await conversar(chatId, novaMensagem)
 
-			if (!resposta) return
+			if (!resposta) {
+				setErro("O assistente está indisponível. Tente novamente ou use os links de contato do portfólio.")
+				return
+			}
 			const mensagemResposta: Mensagem = {
 				id: Id.gerar(),
 				texto: resposta,
@@ -30,6 +36,8 @@ export default function useChat() {
 				icone: "",
 			}
 			setMensagens((msgs) => [...msgs, mensagemResposta])
+		} catch {
+			setErro("Não foi possível enviar a mensagem. Tente novamente ou use os links de contato.")
 		} finally {
 			setPensando(false)
 		}
@@ -37,5 +45,5 @@ export default function useChat() {
 	function limparMensagens() {
 		setMensagens([])
 	}
-	return { chatId, mensagens, adicionarMensagem, limparMensagens, pensando }
+	return { chatId, mensagens, adicionarMensagem, limparMensagens, pensando, erro }
 }
